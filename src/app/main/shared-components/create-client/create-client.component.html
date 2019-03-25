@@ -1,0 +1,72 @@
+<div class="dialog-content-wrapper">
+  <mat-toolbar matDialogTitle class="mat-accent m-0">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+      <span class="title dialog-title">NUEVO CLIENTE</span>
+      <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div mat-dialog-content class="p-24 m-0" fusePerfectScrollbar>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-form-field>
+        <input name="code" placeholder="Codigo" [(ngModel)]="client.code" matInput required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input name="nameToInvoice" placeholder="Nombre a facturar" [(ngModel)]="client.nameToInvoice" matInput required>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="address" placeholder="Domicilio" [(ngModel)]="profile.address" matInput required>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="nit" placeholder="Nit" [(ngModel)]="client.sinNit" matInput required>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-form-field>
+        <input name="name" placeholder="Nombres" [(ngModel)]="profile.name" matInput required>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="lastName" placeholder="Apellidos" [(ngModel)]="profile.lastName" matInput required>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="ci" placeholder="Carnet de Identidad" [(ngModel)]="profile.ci" matInput required>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="email" placeholder="Correo Electronico" [(ngModel)]="profile.email" matInput required>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-form-field>
+        <input name="telephone" placeholder="Telefono" [(ngModel)]="profile.telephone" matInput required>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="cellphone" placeholder="Celular" [(ngModel)]="profile.cellphone" matInput required>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="country" placeholder="Pais" [(ngModel)]="profile.country" matInput required>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="city" placeholder="Ciudad" [(ngModel)]="profile.city" matInput required>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row">
+      <mat-form-field>
+        <mat-select placeholder="Typo de Cliente" [(value)]="selectedTypeClient">
+          <mat-option [value]="typeClient.value" *ngFor="let typeClient of typeClients">{{ typeClient.name }}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="space-between center">
+    <button mat-raised-button type="button" color="accent" (click)="saveClient()">
+      Guardar
+    </button>
+  </div>
+</div>

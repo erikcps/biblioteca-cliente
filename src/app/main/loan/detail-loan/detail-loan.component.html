@@ -1,0 +1,152 @@
+<div id="product" class="page-layout carded fullwidth inner-scroll">
+
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg mat-accent-bg"></div>
+  <!-- / TOP BACKGROUND -->
+
+  <!-- CENTER -->
+  <div class="center">
+
+      <!-- HEADER -->
+      <div class="header mat-accent-bg" fxLayout="row" fxLayoutAlign="space-between center">
+
+          <!-- APP TITLE -->
+          <div fxLayout="row" fxLayoutAlign="start center">
+
+              <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="['/loans/list']">
+                  <mat-icon>arrow_back</mat-icon>
+              </button>
+
+              <div class="product-image mr-8 mr-sm-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                  <img [src]="'assets/images/ecommerce/product-image-placeholder.png'">
+              </div>
+
+              <div fxLayout="column" fxLayoutAlign="start start"
+                   [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                  <div class="subtitle secondary-text">
+                      <span>Detalle de Prestamo</span>
+                  </div>
+              </div>
+          </div>
+          <!-- / APP TITLE -->
+      </div>
+      <!-- / HEADER -->
+
+      <!-- CONTENT CARD -->
+      <div class="content-card mat-white-bg">
+
+          <!-- CONTENT -->
+          <div class="content">
+
+              <form name="loanForm" [formGroup]="loanForm" class="product w-100-p" fxLayout="column" fxFlex>
+
+                  <mat-tab-group>
+
+                    <mat-tab label="Info. Basica">
+
+                      <div class="tab-content p-24" fusePerfectScrollbar>
+
+                          <mat-form-field class="w-100-p">
+                            <input matInput
+                                  name="capital"
+                                  formControlName="title"
+                                  placeholder="Titulo"
+                                  required>
+                          </mat-form-field>
+
+                          <mat-form-field class="w-100-p">
+                            <input matInput
+                                  name="capital"
+                                  formControlName="author"
+                                  placeholder="Author"
+                                  required>
+                          </mat-form-field>
+
+                          <mat-form-field class="w-100-p">
+                            <input matInput
+                                  name="capital"
+                                  formControlName="year"
+                                  placeholder="AÑO"
+                                  required>
+                          </mat-form-field>
+
+                          <mat-form-field class="w-100-p">
+                            <input matInput
+                                  name="capital"
+                                  formControlName="edited"
+                                  placeholder="Editado"
+                                  required>
+                          </mat-form-field>
+
+                          <mat-form-field class="w-100-p">
+                            <input matInput
+                                  name="capital"
+                                  formControlName="language"
+                                  placeholder="Lenguaje"
+                                  required>
+                          </mat-form-field>
+
+                          <mat-form-field class="w-100-p">
+                            <input matInput
+                                  name="capital"
+                                  formControlName="fromDate"
+                                  placeholder="Desde"
+                                  required>
+                          </mat-form-field>
+
+                          <mat-form-field class="w-100-p">
+                            <input matInput
+                                  name="capital"
+                                  formControlName="content"
+                                  placeholder="Contenido"
+                                  required>
+                          </mat-form-field>
+
+                      </div>
+
+                    </mat-tab>
+
+                    <mat-tab label="Copias">
+
+                      <div class="tab-content p-24" fusePerfectScrollbar>
+
+                        <mat-form-field class="w-100-p">
+                          <input matInput
+                                name="capital"
+                                formControlName="copies"
+                                placeholder="Numero de Copias"
+                                required>
+                        </mat-form-field>
+
+                      </div>
+
+                    </mat-tab>
+
+                    <mat-tab label="Libro Digital">
+
+                      <div class="tab-content p-24" fusePerfectScrollbar>
+
+                        <mat-form-field class="w-100-p">
+                          <input matInput
+                                name="capital"
+                                formControlName="download"
+                                placeholder="Enlace de Descarga"
+                                required>
+                        </mat-form-field>
+
+                      </div>
+
+                    </mat-tab>
+
+                  </mat-tab-group>
+              </form>
+
+          </div>
+          <!-- / CONTENT -->
+
+      </div>
+      <!-- / CONTENT CARD -->
+
+  </div>
+  <!-- / CENTER -->
+</div>

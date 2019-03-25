@@ -1,0 +1,89 @@
+<div class="dialog-content-wrapper">
+    <mat-toolbar matDialogTitle class="mat-accent m-0">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="title dialog-title">NUEVO BOOK</span>
+            <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row class="toolbar-bottom py-16" fxLayout="column" fxLayoutAlign="center center">
+            <img [src]="" class="avatar contact-avatar huge m-0"/>
+            <!-- <div class="contact-name mt-8">{{contact.name}} {{contact.lastName}}</div> -->
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div mat-dialog-content class="p-24 m-0" fusePerfectScrollbar>
+      <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field fxFlex>
+          <mat-icon matPrefix class="mr-12 s-20 secondary-text">account_circle</mat-icon>
+          <input name="code" placeholder="Titulo" [(ngModel)]="loan.title" matInput required>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field fxFlex>
+          <mat-icon matPrefix class="mr-12 s-20 secondary-text">account_circle</mat-icon>
+          <input name="name" placeholder="Autor" [(ngModel)]="loan.author" matInput required>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field fxFlex>
+          <mat-icon matPrefix class="mr-12 s-20 secondary-text">account_circle</mat-icon>
+          <input name="city" placeholder="AÑO" [(ngModel)]="loan.year" matInput type="number" required>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field fxFlex>
+          <mat-icon matPrefix class="mr-12 s-20 secondary-text">star</mat-icon>
+          <input name="address" matInput placeholder="Editado" [(ngModel)]="loan.edited" required>
+        </mat-form-field>
+	  </div>
+	  
+	  <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field fxFlex>
+          <mat-icon matPrefix class="mr-12 s-20 secondary-text">star</mat-icon>
+          <input name="address" matInput placeholder="Numero de Paginas" [(ngModel)]="loan.pages" required>
+        </mat-form-field>
+	  </div>
+	  
+	  <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field fxFlex>
+          <mat-icon matPrefix class="mr-12 s-20 secondary-text">star</mat-icon>
+          <input name="address" matInput placeholder="Lenguaje" [(ngModel)]="loan.language" required>
+        </mat-form-field>
+	  </div>
+	  
+	  <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field fxFlex>
+          <mat-icon matPrefix class="mr-12 s-20 secondary-text">star</mat-icon>
+          <input name="address" matInput placeholder="Numero de copias" [(ngModel)]="loan.copies" type="number" required>
+        </mat-form-field>
+	  </div>
+	  
+	  <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+			<mat-form-field fxFlex>
+				<mat-icon matPrefix class="mr-12 s-20 secondary-text">star</mat-icon>
+				<input name="address" matInput placeholder="Enlace de Descarga" [(ngModel)]="loan.download" required>
+			</mat-form-field>
+		</div>
+
+		<div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+				<mat-form-field fxFlex>
+					<mat-icon matPrefix class="mr-12 s-20 secondary-text">star</mat-icon>
+					<input name="address" matInput placeholder="Contenido" [(ngModel)]="loan.content" required>
+				</mat-form-field>
+			</div>
+		</div>
+
+    <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-raised-button 
+              type="button" 
+              color="accent" 
+              (click)="saveLoan()">
+          Guardar
+      </button>
+    </div>
+</div>

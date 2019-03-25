@@ -1,0 +1,228 @@
+<div id="register" fxLayout="column">
+
+    <div id="register-form-wrapper" fxLayout="column" fxLayoutAlign="center center">
+
+        <div id="register-form" [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
+
+            <div class="logo">
+                <img src="assets/images/logos/fuse.svg">
+            </div>
+
+            <div class="title">Crear Usuario</div>
+
+            <div class="horizontal-stepper-wrapper">
+
+                <!-- HORIZONTAL STEPPER EXAMPLE -->
+                <mat-horizontal-stepper class="mat-elevation-z4" [linear]="true">
+
+                    <mat-step [stepControl]="horizontalStepperStep1">
+                        <ng-template matStepLabel>Datos</ng-template>
+                        <form [formGroup]="form">
+                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombres</mat-label>
+                                    <input matInput placeholder="Nombras" formControlName="name" (keydown)="inputValidator.onlyLetters($event)" [(ngModel)]="profile.name" required>
+                                    <mat-icon matSuffix>face</mat-icon>
+                                    <mat-error *ngIf="form.get('name').hasError('required')">Nombre es requerido. </mat-error>
+                                    <mat-error *ngIf="form.get('name').hasError('minlength')">Requiere Minimo 3 caracteres. </mat-error>
+                                    <mat-error *ngIf="form.get('name').hasError('maxlength')">Permitido Maximo 30 caracteres.</mat-error>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Apellidos</mat-label>
+                                    <input matInput placeholder="Apellidos" (keydown)="inputValidator.onlyLetters($event)" formControlName="lastname" [(ngModel)]="profile.lastName" required>
+                                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                    <mat-error *ngIf="form.get('lastname').hasError('required')">Apellido es requerido. </mat-error>
+                                    <mat-error *ngIf="form.get('lastname').hasError('minlength')">Requiere Minimo 3 caracteres. </mat-error>
+                                    <mat-error *ngIf="form.get('lastname').hasError('maxlength')">Permitido Maximo 30 caracteres.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>C.I.</mat-label>
+                                    <input matInput placeholder="C.I." formControlName="ci" (keydown)="inputValidator.onlyNumbers($event)" [(ngModel)]="profile.ci" required>
+                                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                    <mat-error *ngIf="form.get('ci').hasError('required')">C.I requerido. </mat-error>
+                                    <mat-error *ngIf="form.get('ci').hasError('minlength')">Requiere minimo 7 digitos. </mat-error>
+                                    <mat-error *ngIf="form.get('ci').hasError('maxlength')">Permitido 12 digitos. </mat-error>
+                                   
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Username</mat-label>
+                                    <input matInput placeholder="Username" formControlName="username" [(ngModel)]="user.username" required>
+                                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                    <mat-error *ngIf="form.get('username').hasError('required')">Alias es requerido.</mat-error>
+                                    <mat-error *ngIf="form.get('username').hasError('minlength')">Requiere minimo 3 caracteres. </mat-error>
+                                    <mat-error *ngIf="form.get('username').hasError('maxlength')">Permitido 30 caracteres. </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Contraseña</mat-label>
+                                    <input matInput placeholder="Contraseña" type="password" formControlName="password" [(ngModel)]="user.password" required>
+                                    <mat-icon matSuffix>vpn_key</mat-icon>
+                                    <mat-error *ngIf="form.get('password').hasError('required')">
+                                        Contraseña es requerido.
+                                    </mat-error>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Confirmar Contraseña</mat-label>
+                                    <input matInput placeholder="Confirmar Contraseña" type="password" formControlName="confirmPassword"  required>
+                                    <mat-icon matSuffix>vpn_key</mat-icon>
+                                    <mat-error *ngIf="form.get('confirmPassword').hasError('confirmPassword')">
+                                        Contraseña no es igual.
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Pais</mat-label>
+                                    <input matInput placeholder="Pais" [(ngModel)]="profile.country" formControlName="country" required>
+                                    <mat-icon matSuffix>business</mat-icon>
+                                    <mat-error *ngIf="form.get('country').hasError('required')">Pais es requerido.</mat-error>
+                                    <mat-error *ngIf="form.get('country').hasError('minlength')">Requiere minimo 3 caracteres. </mat-error>
+                                    <mat-error *ngIf="form.get('country').hasError('maxlength')">Permitido 30 caracteres. </mat-error>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Ciudad</mat-label>
+                                    <input matInput placeholder="Ciudad" [(ngModel)]="profile.city" formControlName="city" required>
+                                    <mat-icon matSuffix>location_city</mat-icon>
+                                    <mat-error *ngIf="form.get('city').hasError('required')"> Ciudad es requerido.</mat-error>
+                                    <mat-error *ngIf="form.get('city').hasError('minlength')">Requiere minimo 3 caracteres. </mat-error>
+                                    <mat-error *ngIf="form.get('city').hasError('maxlength')">Permitido 30 caracteres. </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Telefono</mat-label>
+                                    <input matInput placeholder="Telefono" [(ngModel)]="profile.telephone" formControlName="phone" >
+                                    <mat-icon matSuffix>phone</mat-icon>
+                                    <mat-error *ngIf="form.get('phone').hasError('minlength')">Minimo 8 digitos es requerido.</mat-error>
+                                        <mat-error *ngIf="form.get('phone').hasError('maxlength')"> Permitido Maximo 12 digitos. </mat-error>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Celular</mat-label>
+                                    <input matInput placeholder="Celular" [(ngModel)]="profile.cellphone" formControlName="cellphone">
+                                    <mat-icon matSuffix>phone_android</mat-icon>
+                                    <mat-error *ngIf="form.get('cellphone').hasError('minlength')">
+                                            Permitido 8 digitos Minimo.
+                                            </mat-error>
+                                        <mat-error *ngIf="form.get('cellphone').hasError('maxlength')">
+                                                Permitido Maximo 12 digito.
+                                            </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Direccion</mat-label>
+                                    <input matInput placeholder="Direccion" [(ngModel)]="profile.address" formControlName="addres" required>
+                                    <mat-icon matSuffix>place</mat-icon>
+                                    <mat-error *ngIf="form.get('addres').hasError('required')">Direccion es requerido. </mat-error>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput placeholder="Email" type="email" [(ngModel)]="profile.email" formControlName="mail" required>
+                                    <mat-icon matSuffix>mail</mat-icon>
+                                    <mat-error *ngIf="form.get('mail').hasError('required')">Email es requerido.</mat-error>
+                                    <mat-error *ngIf="form.get('mail').hasError('mail')">Email es requerido.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <button mat-raised-button  matStepperNext type="submit" color="accent" class="button" [disabled]="form.invalid">
+                                    Siguiente
+                                </button>
+                            </div>
+                        </form>
+                    </mat-step>
+
+                    <mat-step [stepControl]="horizontalStepperStep2">
+
+                        <ng-template matStepLabel   >Seleccione un ROL</ng-template>
+
+                        <mat-grid-list cols="4" rowHeight="8:2" >
+                            <mat-grid-tile *ngFor="let role of roles">
+                                <div fxFlex fxLayoutAlign="start left">
+                                    <mat-radio-group class="example-radio-group" [(ngModel)]="selectedRole">
+                                        <mat-radio-button class="example-radio-button" [value]="role.id">
+                                            {{ role.name }}
+                                        </mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+
+                        <div class="pt-24" fxLayout="row" fxLayoutAlign="center center">
+                            <button class="mr-8" mat-raised-button matStepperPrevious type="button" color="accent">
+                                Previous
+                            </button>
+                            <button mat-raised-button matStepperNext type="button" color="accent">
+                                Next
+                            </button>
+                        </div>
+
+
+                    </mat-step>
+
+                    <mat-step [stepControl]="horizontalStepperStep3">
+
+
+                        <ng-template matStepLabel>Seleccionar modulos</ng-template>
+
+                        <mat-grid-list cols="4" rowHeight="8:2" >
+                            <mat-grid-tile *ngFor="let module of modules">
+                            <div fxFlex fxLayoutAlign="start left">
+                                <mat-checkbox (change)="updateCheckedModules(module, $event)">{{ module.name }}</mat-checkbox>
+                            </div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+
+                        <div class="pt-24" fxLayout="row" fxLayoutAlign="center center">
+                            <button class="mr-8" mat-raised-button matStepperPrevious type="button" color="accent">
+                                Previous
+                            </button>
+                            <button mat-raised-button matStepperNext type="button" color="accent">
+                                Next
+                            </button>
+                        </div>
+
+                    </mat-step>
+
+                    <mat-step>
+
+                        <ng-template matStepLabel>Sucursal</ng-template>
+
+                        <mat-grid-list cols="4" rowHeight="8:2">
+                            <mat-grid-tile *ngFor="let branchOffice of branchOffices">
+                                <div fxFlex fxLayoutAlign="start left">
+                                    <mat-radio-group class="example-radio-group" [(ngModel)]="selectedBranchOffice">
+                                        <mat-radio-button class="example-radio-button" [value]="branchOffice.id">
+                                            {{ branchOffice.name }}
+                                        </mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+
+                        <div class="pt-24" fxLayout="row" fxLayoutAlign="center center">
+                            <button class="mr-8" mat-raised-button matStepperPrevious type="button" color="accent">
+                                Previous
+                            </button>
+                            <button mat-raised-button type="button" color="accent" (click)="finishHorizontalStepper()">
+                                Finish
+                            </button>
+                        </div>
+
+                    </mat-step>
+
+                </mat-horizontal-stepper>
+                <!-- / HORIZONTAL STEPPER EXAMPLE -->
+            </div>
+        </div>
+
+    </div>
+
+</div>
